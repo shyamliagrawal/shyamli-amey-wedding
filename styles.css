@@ -40,7 +40,7 @@ nav a:hover::after { width: 100%; }
 .site-header.scrolled .nav-rsvp { border-color: var(--gold); }
 .menu-toggle { display: none; border: 0; background: transparent; }
 
-.hero { position: relative; min-height: 100svh; display: grid; place-items: center; overflow: hidden; isolation: isolate; background: #f7eee2 url("hero-garden-desktop-v3.png") center/cover no-repeat; }
+.hero { position: relative; min-height: 100svh; display: grid; place-items: center; overflow: hidden; isolation: isolate; background: #f7eee2 url("hero-garden-desktop-v9.png") center/cover no-repeat; }
 .hero::before { content: ""; position: absolute; z-index: 0; width: min(49vw, 660px); height: 76%; top: 8%; left: 50%; transform: translateX(-50%); border: 1px solid rgba(185,133,47,.42); border-radius: 50% 50% 4px 4px / 32% 32% 4px 4px; background: radial-gradient(ellipse at center, rgba(255,251,245,.82) 0, rgba(255,249,239,.6) 52%, rgba(255,249,239,.12) 78%, transparent 79%); box-shadow: 0 0 0 7px rgba(251,247,240,.2), inset 0 0 60px rgba(255,255,255,.3); }
 .hero::after { content: ""; position: absolute; inset: 19px; z-index: 6; border: 1px solid rgba(185,133,47,.18); pointer-events: none; }
 .indian-accents { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
@@ -235,7 +235,7 @@ footer { padding: 48px 5vw; display: flex; justify-content: center; align-items:
 }
 
 @media (max-width: 560px) {
-  .hero { min-height: 100svh; background-image: url("hero-garden-mobile-v3.png"); background-position: center; background-size: cover; }
+  .hero { min-height: 100svh; background-image: url("hero-garden-mobile-v9.png"); background-position: center; background-size: cover; }
   .hero::after { inset: 10px; }
   .hero::before { width: calc(100vw - 76px); height: 74svh; top: 10%; border-radius: 50% 50% 3px 3px / 25% 25% 3px 3px; background: radial-gradient(ellipse at center, rgba(255,251,245,.88) 0, rgba(255,249,239,.65) 56%, rgba(255,249,239,.08) 80%, transparent 81%); }
   .hero-copy { padding: 78px 22px 92px; }
