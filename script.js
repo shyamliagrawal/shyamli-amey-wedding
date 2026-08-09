@@ -57,10 +57,3 @@ document.querySelectorAll('details').forEach((detail) => {
     });
   });
 });
-
-const rsvpForm = document.querySelector('#rsvp-form');
-rsvpForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const name = new FormData(rsvpForm).get('name').trim();
-  rsvpForm.querySelector('.form-message').textContent = `Thank you, ${name}. Online RSVPs will open soon — please check back here.`;
-});
