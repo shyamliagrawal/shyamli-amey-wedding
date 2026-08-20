@@ -1,6 +1,17 @@
 const header = document.querySelector('.site-header');
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
+const opening = document.querySelector('.opening');
+
+function dismissOpening() {
+  requestAnimationFrame(() => opening.classList.add('is-ready'));
+}
+
+if (document.readyState === 'complete') {
+  dismissOpening();
+} else {
+  window.addEventListener('load', dismissOpening, { once: true });
+}
 
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 120);
