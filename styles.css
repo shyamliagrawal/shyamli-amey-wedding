@@ -16,7 +16,6 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--ivory); font-family: var(--sans); font-weight: 300; }
-body.menu-open { overflow: hidden; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
@@ -48,7 +47,6 @@ nav a:not(.nav-rsvp)::after { content: ""; position: absolute; left: 0; bottom: 
 nav a:hover::after { width: 100%; }
 .nav-rsvp { padding: 11px 20px; border: 1px solid var(--gold-light); }
 .site-header.scrolled .nav-rsvp { border-color: var(--gold); }
-.menu-toggle { display: none; border: 0; background: transparent; }
 
 .hero { position: relative; min-height: 100svh; display: grid; place-items: center; overflow: hidden; isolation: isolate; background: #f7eee2 url("hero-garden-desktop-v9.png") center/cover no-repeat; }
 .hero::before { content: ""; position: absolute; z-index: 0; width: min(49vw, 660px); height: 76%; top: 8%; left: 50%; transform: translateX(-50%); border: 1px solid rgba(185,133,47,.42); border-radius: 50% 50% 4px 4px / 32% 32% 4px 4px; background: radial-gradient(ellipse at center, rgba(255,251,245,.82) 0, rgba(255,249,239,.6) 52%, rgba(255,249,239,.12) 78%, transparent 79%); box-shadow: 0 0 0 7px rgba(251,247,240,.2), inset 0 0 60px rgba(255,255,255,.3); }
@@ -149,12 +147,6 @@ h2 { margin: 0; color: var(--forest); font: 400 clamp(2.8rem, 6vw, 5rem)/1.04 va
 .story-moments h3 { margin: 0 0 4px; color: var(--forest); font: 500 1.25rem/1.2 var(--serif); }
 .story-moments p { margin: 0; font-size: 1.02rem; line-height: 1.62; }
 .story-copy .story-closing { margin: 1px 0 12px; color: var(--sage); font-style: italic; font-size: 1.08rem; line-height: 1.62; }
-.story-link { display: inline-flex; align-items: center; gap: 28px; margin-top: 14px; padding: 12px 0 7px; color: var(--forest); border-bottom: 1px solid var(--gold); text-decoration: none; text-transform: uppercase; font: 500 .62rem/1 var(--sans); letter-spacing: .16em; }
-.story-link i { color: var(--gold); font: normal 1rem/1 var(--serif); transition: transform .25s; }
-.story-link:hover i { transform: translateX(5px); }
-.story-link-pending { border-bottom-style: dotted; cursor: default; }
-.story-link-pending i { color: #8a795d; font: italic 500 .78rem/1 var(--serif); letter-spacing: .04em; text-transform: none; }
-.story-link-pending:hover i { transform: none; }
 
 .story-schedule-divider { position: relative; z-index: 2; min-height: 126px; display: flex; justify-content: center; align-items: center; gap: clamp(18px,3vw,38px); padding: 10px 7vw; background: linear-gradient(180deg, #f6ecde, #f0e7d9); }
 .story-schedule-divider img { width: min(225px, 38vw); height: auto; filter: drop-shadow(0 7px 12px rgba(79,61,37,.08)); }
@@ -229,16 +221,7 @@ footer { padding: 48px 5vw; display: flex; justify-content: center; align-items:
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } .story-motion { display: none; } .story-still { display: block; } }
 
 @media (max-width: 850px) {
-  .site-header { padding: 20px 24px; }
-  .menu-toggle { display: grid; gap: 5px; z-index: 2; padding: 10px; border: 1px solid rgba(213,176,109,.55); border-radius: 50%; background: rgba(43,55,37,.34); }
-  .menu-toggle span:not(.sr-only) { display: block; width: 22px; height: 1px; background: #fff4df; box-shadow: 0 1px 3px rgba(25,34,22,.35); transition: .25s; }
-  .site-header.scrolled .menu-toggle, .menu-open .menu-toggle { border-color: rgba(185,133,47,.45); background: rgba(251,247,240,.9); }
-  .site-header.scrolled .menu-toggle span:not(.sr-only), .menu-open .menu-toggle span:not(.sr-only) { background: var(--forest); box-shadow: none; }
-  .menu-open .menu-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-  nav { position: fixed; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 30px; visibility: hidden; opacity: 0; background: var(--ivory); transition: .3s; }
-  .menu-open nav { visibility: visible; opacity: 1; }
-  .menu-open .site-header { color: var(--forest); text-shadow: none; }
-  nav a { font-size: .8rem; }
+  .site-header { display: none; }
   .hero::before { width: 70vw; height: 78vh; top: 7%; }
   .hero-copy { padding-top: 88px; }
   .schedule-grid { grid-template-columns: 1fr; max-width: 600px; gap: 18px; }

@@ -1,6 +1,4 @@
 const header = document.querySelector('.site-header');
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('#site-nav');
 const opening = document.querySelector('.opening');
 
 function dismissOpening() {
@@ -16,18 +14,6 @@ if (document.readyState === 'complete') {
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 120);
 }, { passive: true });
-
-menuButton.addEventListener('click', () => {
-  const open = document.body.classList.toggle('menu-open');
-  menuButton.setAttribute('aria-expanded', String(open));
-});
-
-nav.addEventListener('click', (event) => {
-  if (event.target.matches('a')) {
-    document.body.classList.remove('menu-open');
-    menuButton.setAttribute('aria-expanded', 'false');
-  }
-});
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
