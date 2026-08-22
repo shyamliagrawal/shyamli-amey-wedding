@@ -17,14 +17,14 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--ivory); font-family: var(--sans); font-weight: 300; }
 body.hindi { --serif: "Noto Serif Devanagari", "Cormorant Garamond", serif; --display: "Noto Serif Devanagari", "Italiana", serif; --sans: "Noto Sans Devanagari", "DM Sans", sans-serif; }
-body.hindi h2 { line-height: 1.28; letter-spacing: -.015em; }
-body.hindi .hero-kicker, body.hindi .kicker, body.hindi nav a { letter-spacing: .08em; }
-body.hindi .hero-kicker { font-size: clamp(.9rem, 1.25vw, 1.08rem); line-height: 1.5; }
-body.hindi .hero-invitation { line-height: 1.55; }
+body.hindi h2 { line-height: 1.28; letter-spacing: 0; }
+body.hindi .hero-kicker, body.hindi .hero-invitation, body.hindi .kicker, body.hindi nav a, body.hindi .date span, body.hindi .place, body.hindi .venue-note, body.hindi .scroll-cue, body.hindi .countdown-heading h2, body.hindi .countdown span, body.hindi .story-image figcaption, body.hindi .story-moments time, body.hindi .schedule-day header span, body.hindi .schedule-day time, body.hindi .stay-note span, body.hindi dt, body.hindi .venue .text-link, body.hindi .footer-family { letter-spacing: 0; }
+body.hindi .hero-kicker { font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.55; }
+body.hindi .hero-invitation { font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.55; }
 body.hindi .button { letter-spacing: 0; font-size: .78rem; line-height: 1.35; text-transform: none; }
 body.hindi .button span { white-space: nowrap; }
 body.hindi .date strong { line-height: 1; letter-spacing: .06em; }
-body.hindi .date span { line-height: 1.4; letter-spacing: .1em; }
+body.hindi .date span { line-height: 1.4; }
 body.hindi .story-moments h3, body.hindi .schedule-day h3, body.hindi .schedule-day h4 { line-height: 1.42; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
