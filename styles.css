@@ -92,7 +92,7 @@ nav a:hover::after { width: 100%; }
 .hero-wordmark { width: min(410px, 37vw); margin: -1px auto -15px; filter: drop-shadow(0 3px 9px rgba(255,251,241,.7)); }
 body.hindi .hero-wordmark-hindi { width: min(390px, 35vw); margin-block: -18px -6px; }
 .hero-invitation { margin: 0; color: #584a38; font: italic 600 clamp(1.03rem, 1.5vw, 1.26rem)/1.3 var(--serif); letter-spacing: .035em; text-shadow: 0 1px 8px rgba(255,251,243,.95); }
-.hosted-invitation .hero { min-height: max(100svh, 790px); }
+.hosted-invitation .hero { min-height: 100svh; }
 .hosted-invitation .hero-copy { padding-top: 76px; }
 .hosted-invitation .ganesha-mark { margin-bottom: 6px; }
 .hosted-invitation .hero-kicker { max-width: 600px; padding-inline: 12px; text-transform: none; font: 500 clamp(.92rem,1.18vw,1.08rem)/1.42 var(--serif); letter-spacing: .015em; }
@@ -273,6 +273,18 @@ body.hindi.host-a .footer-invitation-line { letter-spacing: 0; }
 .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } .story-motion { display: none; } .story-still { display: block; } }
 
+@media (min-width: 561px) and (max-height: 820px) {
+  .hosted-invitation .hero-copy { padding-block: 48px 38px; }
+  .hosted-invitation .ganesha-mark, .hosted-invitation .hero-ganesha { width: 42px; }
+  .hosted-invitation .hero-blessing { margin-bottom: 4px; font-size: .82rem; }
+  .hosted-invitation .hero-kicker { font-size: .9rem; line-height: 1.35; }
+  .hosted-invitation .hero-wordmark, body.hindi.hosted-invitation .hero-wordmark-hindi { width: min(295px,36svh,27vw); margin-block: -10px -8px; }
+  .hosted-invitation .hero-invitation { font-size: .92rem; }
+  .hosted-invitation .hero-details { margin-block: 10px 14px; padding-block: 10px; }
+  .hosted-invitation .place { margin-top: 9px; }
+  .host-a .hero-blessing, .host-a .hero-kicker { transform: translateY(6px); }
+}
+
 @media (max-width: 850px) {
   .language-switch { position: absolute; top: 15px; left: 15px; min-width: 58px; padding: 8px 11px 7px; }
   .site-header { display: none; }
@@ -298,9 +310,9 @@ body.hindi.host-a .footer-invitation-line { letter-spacing: 0; }
   .hero-wordmark { width: min(70vw, 325px); margin-top: 0; margin-bottom: -11px; }
   body.hindi .hero-wordmark-hindi { width: min(72vw, 330px); margin-block: -14px -3px; }
   .hero-invitation { max-width: 310px; margin-inline: auto; font-size: 1.06rem; letter-spacing: .02em; }
-  .hosted-invitation .hero { min-height: 900px; }
+  .hosted-invitation .hero { min-height: 100svh; }
   .hosted-invitation .hero::before { height: 82%; top: 7%; }
-  .hosted-invitation .hero-copy { padding: 82px 20px 76px; }
+  .hosted-invitation .hero-copy { padding: 58px 20px 50px; }
   .hosted-invitation .hero-blessing { max-width: 325px; margin-bottom: 5px; font-size: .86rem; line-height: 1.42; }
   .hosted-invitation .hero-kicker { max-width: 335px; font-size: .92rem; line-height: 1.48; letter-spacing: 0; }
   .hosted-invitation .hero-host-primary { font-size: .88rem; }
