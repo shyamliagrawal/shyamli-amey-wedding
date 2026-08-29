@@ -115,7 +115,17 @@ if (invitation) {
     }));
     invocations.hidden = false;
   }
-  blessing.textContent = invitation.blessing;
+  const blessingLead = 'With the blessings of ';
+  if (invitation.blessing.startsWith(blessingLead)) {
+    const lead = document.createElement('span');
+    lead.textContent = blessingLead.trim();
+    const names = document.createElement('span');
+    names.className = 'hero-blessing-names';
+    names.textContent = invitation.blessing.slice(blessingLead.length);
+    blessing.replaceChildren(lead, document.createTextNode(' '), names);
+  } else {
+    blessing.textContent = invitation.blessing;
+  }
   blessing.hidden = false;
   const familyName = document.createElement('span');
   familyName.className = 'hero-host-family';
