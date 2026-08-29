@@ -165,6 +165,17 @@ h2 { margin: 0; color: var(--forest); font: 400 clamp(2.8rem, 6vw, 5rem)/1.04 va
 .story { position: relative; overflow: hidden; background: linear-gradient(180deg, #eee3d3 0, #f8f1e7 13%, var(--ivory) 45%, #f6ecde 100%); }
 .story > * { position: relative; z-index: 1; }
 .story > .section-canopy { position: absolute; z-index: 0; }
+.story > .story-flight { position: absolute; z-index: 2; inset: 108px max(18px, calc((100% - 1180px) / 2)) auto; height: min(58vw, 660px); pointer-events: none; }
+.flight-route { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.flight-route-mobile { display: none; }
+.flight-path { fill: none; stroke: rgba(184,133,48,.46); stroke-width: 1.35; stroke-linecap: round; stroke-dasharray: 3 8; vector-effect: non-scaling-stroke; }
+.flight-plane-emoji { visibility: hidden; }
+.story-flight.flight-started .flight-plane-emoji { visibility: visible; }
+.flight-plane-emoji text { font: 24px/1 sans-serif; }
+.flight-pin > path { fill: rgba(249,239,214,.92); stroke: #b98a38; stroke-width: 1.5; }
+.flight-pin circle { fill: #d9a95b; stroke: none; }
+.flight-pin text { fill: #597052; stroke: none; paint-order: stroke; font: italic 500 16px/1 var(--serif); letter-spacing: .04em; text-shadow: 0 1px 7px rgba(251,246,236,.95); }
+body.hindi .flight-pin text { font-style: normal; letter-spacing: 0; }
 .story .section-heading::after { content: "✦"; display: block; width: 160px; margin: 24px auto 0; color: var(--gold); background: linear-gradient(90deg, transparent 0 45%, transparent 45% 55%, transparent 55%), linear-gradient(var(--gold),var(--gold)) left 50%/67px 1px no-repeat, linear-gradient(var(--gold),var(--gold)) right 50%/67px 1px no-repeat; font-size: .65rem; }
 .story-layout { position: relative; display: grid; grid-template-columns: minmax(300px, 490px) minmax(280px, 520px); justify-content: center; align-items: center; gap: clamp(50px, 8vw, 108px); }
 .story-layout::after { content: ""; position: absolute; z-index: 0; top: 54%; left: 41%; width: clamp(70px, 8vw, 115px); height: 34px; border-top: 1px solid rgba(185,133,47,.38); border-radius: 50%; transform: rotate(4deg); }
@@ -268,12 +279,14 @@ details p { max-width: 690px; margin: -7px 0 25px; font: 400 1rem/1.7 var(--seri
 footer { padding: 48px 5vw; display: flex; justify-content: center; align-items: center; background: #eee3d3; }
 .footer-family { display: flex; align-items: center; gap: clamp(14px,2vw,25px); margin: 0; color: var(--rose-dark); text-align: center; font: italic 500 clamp(1.1rem,2vw,1.45rem)/1.3 var(--serif); letter-spacing: .055em; }
 .footer-family i { color: var(--gold); font: normal .58em/1 var(--serif); }
-.host-a #footer-family-text { display: grid; gap: 5px; }
-.host-a .footer-invitation-heading { color: var(--gold); text-transform: uppercase; font: normal 500 .58rem/1.3 var(--sans); letter-spacing: .18em; }
-.host-a .footer-invitation-line { display: block; white-space: nowrap; letter-spacing: .02em; }
+.host-a #footer-family-text, .host-s #footer-family-text { display: grid; gap: 5px; }
+.host-a .footer-invitation-heading, .host-s .footer-invitation-heading { color: var(--gold); text-transform: uppercase; font: normal 500 .58rem/1.3 var(--sans); letter-spacing: .18em; }
+.host-a .footer-invitation-line, .host-s .footer-invitation-line { display: block; white-space: nowrap; letter-spacing: .02em; }
 .host-a .footer-separator { display: inline-block; margin: 0 .62em; color: var(--gold); font: normal .52em/1 var(--serif); }
 body.hindi.host-a .footer-invitation-heading { text-transform: none; letter-spacing: 0; font-family: var(--sans); font-size: .72rem; }
 body.hindi.host-a .footer-invitation-line { letter-spacing: 0; }
+body.hindi.host-s .footer-invitation-heading { text-transform: none; letter-spacing: 0; font-family: var(--sans); font-size: .72rem; }
+body.hindi.host-s .footer-invitation-line { letter-spacing: 0; }
 
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -331,8 +344,8 @@ body.hindi.host-a .footer-invitation-line { letter-spacing: 0; }
   body.hindi.hosted-invitation .hero-kicker { font-size: .94rem; line-height: 1.62; }
   body.hindi.hosted-invitation .hero-host-primary { font-size: .84rem; }
   body.hindi.hosted-invitation .hero-wordmark-hindi { width: min(65vw, 298px); margin-block: -7px -6px; }
-  .host-a .footer-family { gap: 10px; }
-  .host-a .footer-invitation-line { font-size: clamp(.82rem,3.8vw,1rem); }
+  .host-a .footer-family, .host-s .footer-family { gap: 10px; }
+  .host-a .footer-invitation-line, .host-s .footer-invitation-line { font-size: clamp(.82rem,3.8vw,1rem); }
   .hero-details { width: min(330px, 90%); margin: 15px auto 18px; padding: 13px 0 12px; }
   .date strong { font-size: 1.82rem; letter-spacing: .12em; }
   .date span { font-size: .82rem; letter-spacing: .16em; }
@@ -363,6 +376,11 @@ body.hindi.host-a .footer-invitation-line { letter-spacing: 0; }
   .countdown span { margin-top: 5px; font-size: .43rem; letter-spacing: .13em; }
   .section { padding-inline: 22px; }
   .story-layout { grid-template-columns: 1fr; }
+  .story > .story-flight { inset: 118px 0 auto; height: min(164vw, 760px); }
+  .flight-route-desktop { display: none; }
+  .flight-route-mobile { display: block; }
+  .flight-path { stroke-width: 1.15; }
+  .flight-pin text { font-size: 14px; }
   .story-layout::after { display: none; }
   .story-image { width: min(100%, 450px); margin: -4px auto 28px; }
   .story-image::before { left: 5%; width: 83%; }

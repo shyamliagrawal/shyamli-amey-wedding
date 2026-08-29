@@ -31,7 +31,10 @@ const invitationVariants = {
       coupleName: 'Shyamli and Amey',
       wordmark: 'hero-wordmark-v2.png',
       partnerLine: 'son of Sunita and Dipak Agrawal',
-      footer: 'With love, Kavita and Ramavtar Agrawal',
+      footer: [
+        'Cordially inviting you',
+        'The Agrawal family, Shegaon',
+      ],
     },
   },
   hi: {
@@ -61,7 +64,10 @@ const invitationVariants = {
       coupleName: 'श्यामली और अमेय',
       wordmark: '../hero-wordmark-hindi-v3.png',
       partnerLine: 'सुपुत्र सुनीता एवं दीपक अग्रवाल',
-      footer: 'सप्रेम — कविता एवं रामावतार अग्रवाल',
+      footer: [
+        'सस्नेह आमंत्रण',
+        'अग्रवाल परिवार, शेगांव',
+      ],
     },
   },
 };
@@ -142,6 +148,32 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+const storySection = document.querySelector('.story');
+const storyFlight = storySection?.querySelector('.story-flight');
+const flightMotions = storyFlight ? [...storyFlight.querySelectorAll('animateMotion')] : [];
+
+if (storySection && storyFlight && flightMotions.length) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const startFlight = () => {
+    flightMotions.forEach((motion) => {
+      if (reducedMotion) motion.setAttribute('dur', '0.001s');
+      motion.beginElement();
+    });
+    storyFlight.classList.add('flight-started');
+  };
+
+  if (reducedMotion) {
+    startFlight();
+  } else {
+    const flightObserver = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      startFlight();
+      flightObserver.disconnect();
+    }, { threshold: 0.18 });
+    flightObserver.observe(storySection);
+  }
+}
 
 const countdown = document.querySelector('.countdown');
 const weddingDate = new Date(countdown.dataset.date).getTime();
