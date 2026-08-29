@@ -6,23 +6,27 @@ const isHindi = document.documentElement.lang === 'hi';
 const invitationVariants = {
   en: {
     a: {
-      blessing: 'With the blessings of Padma and Inderchandji Agrawal',
+      blessing: 'With the blessings of Padma-devi and Dr Inderchandji Agrawal',
       hostLine: {
-        family: 'Sunita and Dipak Agrawal',
+        family: 'Dr Sunita and Dr Dipak Agrawal',
         invitation: 'joyfully invite you',
         occasion: 'to celebrate the wedding of their son',
       },
       coupleName: 'Amey and Shyamli',
       wordmark: 'hero-wordmark-amey-first.png',
-      partnerLine: 'daughter of Kavita and Ramavtar Agrawal',
+      partnerLine: 'daughter of Kavitaji and Ramavtarji Agrawal',
       footer: [
         'Cordially inviting you',
-        'Padma & Inderchandji Agrawal',
-        'Sunita & Dipak Agrawal ✦ Nitin Agrawal',
+        'Padma-devi & Dr Inderchandji Agrawal',
+        'Dr Sunita & Dr Dipak Agrawal ✦ Nitin Agrawal',
       ],
     },
     s: {
-      blessing: 'With the blessings of all our elders',
+      invocations: [
+        'Shree Gajanan Maharaj Prasanna',
+        'By the grace of Khatu Shyam and Mansa Mata',
+      ],
+      blessing: 'With the blessings of Late Kaveri-bai and Late Vasudeoji Agrawal',
       hostLine: {
         family: 'Kavita and Ramavtar Agrawal',
         invitation: 'joyfully invite you',
@@ -30,32 +34,40 @@ const invitationVariants = {
       },
       coupleName: 'Shyamli and Amey',
       wordmark: 'hero-wordmark-v2.png',
-      partnerLine: 'son of Sunita and Dipak Agrawal',
+      partnerLine: [
+        'son of Dr Sunitaji and Dr Dipakji Agrawal',
+        'grandson of Padma-devi and Dr Inderchandji Agrawal',
+      ],
       footer: [
         'Cordially inviting you',
-        'The Agrawal family, Shegaon',
+        'Murari Agrawal ✦ Vijay Agrawal',
+        'Ramavtar Agrawal ✦ Mayur Agrawal',
       ],
     },
   },
   hi: {
     a: {
-      blessing: 'पद्मा एवं इंदरचंदजी अग्रवाल के शुभाशीष से',
+      blessing: 'पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल के शुभाशीष से',
       hostLine: {
-        family: 'सुनीता एवं दीपक अग्रवाल',
+        family: 'डॉ. सुनीता एवं डॉ. दीपक अग्रवाल',
         invitation: 'आपको अपने सुपुत्र के',
         occasion: 'शुभ विवाह में सादर आमंत्रित करते हैं',
       },
       coupleName: 'अमेय और श्यामली',
       wordmark: '../hero-wordmark-hindi-amey-first.png',
-      partnerLine: 'सुपुत्री कविता एवं रामवतार अग्रवाल',
+      partnerLine: 'सुपुत्री कविताजी एवं रामवतारजी अग्रवाल',
       footer: [
         'सस्नेह आमंत्रण',
-        'पद्मा एवं इंदरचंदजी अग्रवाल',
-        'सुनीता एवं दीपक अग्रवाल ✦ नितिन अग्रवाल',
+        'पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल',
+        'डॉ. सुनीता एवं डॉ. दीपक अग्रवाल ✦ नितिन अग्रवाल',
       ],
     },
     s: {
-      blessing: 'समस्त बड़ों के शुभाशीष से',
+      invocations: [
+        'श्री गजानन महाराज प्रसन्न',
+        'खाटू श्याम एवं मनसा माता की कृपा से',
+      ],
+      blessing: 'स्व. कावेरीबाई एवं स्व. वासुदेवजी अग्रवाल के शुभाशीष से',
       hostLine: {
         family: 'कविता एवं रामवतार अग्रवाल',
         invitation: 'आपको अपनी सुपुत्री के',
@@ -63,10 +75,14 @@ const invitationVariants = {
       },
       coupleName: 'श्यामली और अमेय',
       wordmark: '../hero-wordmark-hindi-v3.png',
-      partnerLine: 'सुपुत्र सुनीता एवं दीपक अग्रवाल',
+      partnerLine: [
+        'सुपुत्र डॉ. सुनीताजी एवं डॉ. दीपकजी अग्रवाल',
+        'सुपौत्र पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल',
+      ],
       footer: [
         'सस्नेह आमंत्रण',
-        'अग्रवाल परिवार, शेगांव',
+        'मुरारी अग्रवाल ✦ विजय अग्रवाल',
+        'रामवतार अग्रवाल ✦ मयुर अग्रवाल',
       ],
     },
   },
@@ -74,6 +90,7 @@ const invitationVariants = {
 
 const invitation = invitationVariants[isHindi ? 'hi' : 'en'][host];
 if (invitation) {
+  const invocations = document.querySelector('#hero-invocations');
   const blessing = document.querySelector('#hero-blessing');
   const hostLine = document.querySelector('#hero-host-line');
   const coupleName = document.querySelector('#hero-couple-name');
@@ -82,6 +99,22 @@ if (invitation) {
   const footer = document.querySelector('#footer-family-text');
 
   document.body.classList.add('hosted-invitation', `host-${host}`);
+  if (invitation.invocations) {
+    invocations.replaceChildren(...invitation.invocations.map((line, index) => {
+      const row = document.createElement('span');
+      row.className = 'hero-invocation-line';
+      if (index === 0) {
+        const openingMark = document.createElement('i');
+        openingMark.textContent = '॥';
+        const closingMark = openingMark.cloneNode(true);
+        row.append(openingMark, document.createTextNode(line), closingMark);
+      } else {
+        row.textContent = line;
+      }
+      return row;
+    }));
+    invocations.hidden = false;
+  }
   blessing.textContent = invitation.blessing;
   blessing.hidden = false;
   const familyName = document.createElement('span');
@@ -100,7 +133,16 @@ if (invitation) {
   coupleName.textContent = invitation.coupleName;
   wordmark.src = invitation.wordmark;
   wordmark.alt = invitation.coupleName;
-  partnerLine.textContent = invitation.partnerLine;
+  if (Array.isArray(invitation.partnerLine)) {
+    partnerLine.replaceChildren(...invitation.partnerLine.map((line) => {
+      const row = document.createElement('span');
+      row.className = 'hero-partner-row';
+      row.textContent = line;
+      return row;
+    }));
+  } else {
+    partnerLine.textContent = invitation.partnerLine;
+  }
   if (Array.isArray(invitation.footer)) {
     footer.replaceChildren(...invitation.footer.map((line, index) => {
       const row = document.createElement('span');

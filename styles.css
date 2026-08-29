@@ -95,6 +95,11 @@ body.hindi .hero-wordmark-hindi { width: min(390px, 35vw); margin-block: -18px -
 .hosted-invitation .hero { min-height: 100svh; }
 .hosted-invitation .hero-copy { padding-top: 76px; }
 .hosted-invitation .ganesha-mark { margin-bottom: 6px; }
+.hero-invocations { max-width: 560px; margin: 0 auto 5px; color: #795c30; font: 500 clamp(.72rem,.92vw,.84rem)/1.4 var(--serif); letter-spacing: .025em; text-shadow: 0 1px 7px rgba(255,251,243,.95); }
+.hero-invocation-line { display: block; }
+.hero-invocation-line + .hero-invocation-line { margin-top: 1px; font-size: .94em; }
+.hero-invocation-line i { display: inline-block; margin-inline: 7px; color: var(--gold); font: normal .72em/1 var(--serif); }
+body.hindi .hero-invocations { letter-spacing: 0; font-family: var(--serif); }
 .hosted-invitation .hero-kicker { max-width: 600px; padding-inline: 12px; text-transform: none; font: 500 clamp(.92rem,1.18vw,1.08rem)/1.42 var(--serif); letter-spacing: .015em; }
 .hero-host-primary { display: block; white-space: nowrap; }
 .hero-host-family { color: var(--rose-dark); font-size: 1.12em; font-weight: 600; }
@@ -103,6 +108,8 @@ body.hindi .hero-wordmark-hindi { width: min(390px, 35vw); margin-block: -18px -
 .hero-host-occasion::before, .hero-host-occasion::after { content: "✦"; margin: 0 10px; color: var(--gold); font-size: .42em; vertical-align: .28em; }
 .hosted-invitation .hero-wordmark { width: min(350px, 31vw); margin-block: -8px -12px; }
 .hosted-invitation .hero-invitation { font-size: clamp(.92rem,1.25vw,1.08rem); }
+.hero-partner-row { display: block; }
+.hero-partner-row + .hero-partner-row { margin-top: 3px; font-size: .92em; }
 .hosted-invitation .hero-details { margin-top: 14px; }
 .host-a .hero-blessing, .host-a .hero-kicker { transform: translateY(11px); }
 body.hindi.hosted-invitation .hero-blessing, body.hindi.hosted-invitation .hero-kicker, body.hindi.hosted-invitation .hero-invitation { letter-spacing: 0; }
@@ -282,7 +289,7 @@ footer { padding: 48px 5vw; display: flex; justify-content: center; align-items:
 .host-a #footer-family-text, .host-s #footer-family-text { display: grid; gap: 5px; }
 .host-a .footer-invitation-heading, .host-s .footer-invitation-heading { color: var(--gold); text-transform: uppercase; font: normal 500 .58rem/1.3 var(--sans); letter-spacing: .18em; }
 .host-a .footer-invitation-line, .host-s .footer-invitation-line { display: block; white-space: nowrap; letter-spacing: .02em; }
-.host-a .footer-separator { display: inline-block; margin: 0 .62em; color: var(--gold); font: normal .52em/1 var(--serif); }
+.host-a .footer-separator, .host-s .footer-separator { display: inline-block; margin: 0 .62em; color: var(--gold); font: normal .52em/1 var(--serif); }
 body.hindi.host-a .footer-invitation-heading { text-transform: none; letter-spacing: 0; font-family: var(--sans); font-size: .72rem; }
 body.hindi.host-a .footer-invitation-line { letter-spacing: 0; }
 body.hindi.host-s .footer-invitation-heading { text-transform: none; letter-spacing: 0; font-family: var(--sans); font-size: .72rem; }
@@ -333,6 +340,8 @@ body.hindi.host-s .footer-invitation-line { letter-spacing: 0; }
   .hosted-invitation .hero::before { height: 82%; top: 7%; }
   .hosted-invitation .hero-copy { padding: 58px 20px 50px; }
   .hosted-invitation .hero-blessing { max-width: 325px; margin-bottom: 5px; font-size: .86rem; line-height: 1.42; }
+  .host-s .ganesha-mark { margin-bottom: 4px; }
+  .host-s .hero-invocations { max-width: 330px; margin-bottom: 4px; font-size: .7rem; line-height: 1.35; }
   .hosted-invitation .hero-kicker { max-width: 335px; font-size: .92rem; line-height: 1.48; letter-spacing: 0; }
   .hosted-invitation .hero-host-primary { font-size: .88rem; }
   .hosted-invitation .hero-host-occasion { padding-inline: 4px; }
