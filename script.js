@@ -6,7 +6,7 @@ const isHindi = document.documentElement.lang === 'hi';
 const invitationVariants = {
   en: {
     a: {
-      blessing: 'With the blessings of Padma and Inderchand Agrawal',
+      blessing: 'With the blessings of Padma and Inderchandji Agrawal',
       hostLine: {
         family: 'Sunita and Dipak Agrawal',
         invitation: 'joyfully invite you',
@@ -17,12 +17,12 @@ const invitationVariants = {
       partnerLine: 'daughter of Kavita and Ramavtar Agrawal',
       footer: [
         'Cordially inviting you',
-        'Padma & Inderchand Agrawal',
+        'Padma & Inderchandji Agrawal',
         'Sunita & Dipak Agrawal ✦ Nitin Agrawal',
       ],
     },
     s: {
-      blessing: 'With the blessings of Kaveri and Vasudeo Agrawal',
+      blessing: 'With the blessings of all our elders',
       hostLine: {
         family: 'Kavita and Ramavtar Agrawal',
         invitation: 'joyfully invite you',
@@ -39,7 +39,7 @@ const invitationVariants = {
   },
   hi: {
     a: {
-      blessing: 'पद्मा एवं इंदरचंद अग्रवाल के शुभाशीष से',
+      blessing: 'पद्मा एवं इंदरचंदजी अग्रवाल के शुभाशीष से',
       hostLine: {
         family: 'सुनीता एवं दीपक अग्रवाल',
         invitation: 'आपको अपने सुपुत्र के',
@@ -50,12 +50,12 @@ const invitationVariants = {
       partnerLine: 'सुपुत्री कविता एवं रामावतार अग्रवाल',
       footer: [
         'सस्नेह आमंत्रण',
-        'पद्मा एवं इंदरचंद अग्रवाल',
+        'पद्मा एवं इंदरचंदजी अग्रवाल',
         'सुनीता एवं दीपक अग्रवाल ✦ नितिन अग्रवाल',
       ],
     },
     s: {
-      blessing: 'कावेरी एवं वासुदेव अग्रवाल के शुभाशीष से',
+      blessing: 'समस्त बड़ों के शुभाशीष से',
       hostLine: {
         family: 'कविता एवं रामावतार अग्रवाल',
         invitation: 'आपको अपनी सुपुत्री के',
