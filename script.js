@@ -47,7 +47,7 @@ const invitationVariants = {
       },
       coupleName: 'अमेय और श्यामली',
       wordmark: '../hero-wordmark-hindi-amey-first.png',
-      partnerLine: 'सुपुत्री कविता एवं रामावतार अग्रवाल',
+      partnerLine: 'सुपुत्री कविता एवं रामवतार अग्रवाल',
       footer: [
         'सस्नेह आमंत्रण',
         'पद्मा एवं इंदरचंदजी अग्रवाल',
@@ -57,7 +57,7 @@ const invitationVariants = {
     s: {
       blessing: 'समस्त बड़ों के शुभाशीष से',
       hostLine: {
-        family: 'कविता एवं रामावतार अग्रवाल',
+        family: 'कविता एवं रामवतार अग्रवाल',
         invitation: 'आपको अपनी सुपुत्री के',
         occasion: 'शुभ विवाह में सादर आमंत्रित करते हैं',
       },
