@@ -90,7 +90,7 @@ nav a:hover::after { width: 100%; }
 .hero-kicker { width: fit-content; margin: 0 auto; padding: 3px 18px; color: #463a27; background: radial-gradient(ellipse at center, rgba(255,251,243,.78), rgba(255,251,243,0) 75%); text-transform: uppercase; font: 500 clamp(.69rem, .9vw, .8rem)/1.4 var(--sans); letter-spacing: .29em; text-shadow: 0 1px 8px #fffaf0; }
 .hero-blessing { max-width: 520px; margin: 0 auto 7px; color: #76511f; font: italic 600 clamp(.86rem,1.15vw,1rem)/1.35 var(--serif); letter-spacing: .035em; text-shadow: 0 1px 7px rgba(255,251,243,.98), 0 0 12px rgba(255,248,232,.72); }
 .hero-wordmark { width: min(410px, 37vw); margin: -1px auto -15px; filter: drop-shadow(0 3px 9px rgba(255,251,241,.7)); }
-body.hindi .hero-wordmark-hindi { width: min(390px, 35vw); margin-block: -18px -6px; }
+body.hindi .hero-wordmark-hindi { width: min(390px, 35vw); margin-block: -46px -6px; }
 .hero-invitation { margin: 0; color: #584a38; font: italic 600 clamp(1.03rem, 1.5vw, 1.26rem)/1.3 var(--serif); letter-spacing: .035em; text-shadow: 0 1px 8px rgba(255,251,243,.95); }
 .hosted-invitation .hero { min-height: 100svh; }
 .hosted-invitation .hero-copy { padding-top: 76px; }
@@ -335,7 +335,7 @@ body.hindi.host-s .footer-invitation-line { letter-spacing: 0; }
   .ganesha-mark { margin-bottom: 8px; }
   .hero-kicker { max-width: 310px; font-size: .69rem; letter-spacing: .21em; }
   .hero-wordmark { width: min(70vw, 325px); margin-top: 0; margin-bottom: -11px; }
-  body.hindi .hero-wordmark-hindi { width: min(72vw, 330px); margin-block: -14px -3px; }
+  body.hindi .hero-wordmark-hindi { width: min(72vw, 330px); margin-block: -40px -3px; }
   .hero-invitation { max-width: 310px; margin-inline: auto; font-size: 1.06rem; letter-spacing: .02em; }
   .hosted-invitation .hero { min-height: 100svh; }
   .hosted-invitation .hero::before { height: 82%; top: 7%; }
