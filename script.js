@@ -170,7 +170,7 @@ if (storySection && storyFlight && flightMotions.length) {
       if (!entries.some((entry) => entry.isIntersecting)) return;
       startFlight();
       flightObserver.disconnect();
-    }, { threshold: 0.18 });
+    }, { threshold: 0.4 });
     flightObserver.observe(storySection);
   }
 }
