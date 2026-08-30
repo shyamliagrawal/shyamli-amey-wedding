@@ -325,7 +325,7 @@ h1::before {
 
 h1 span { min-width: 0; }
 h1 b { display: block; font: 400 clamp(2.6rem, 8vw, 4.5rem)/1 var(--display); letter-spacing: -.035em; }
-h1 small { display: block; min-height: 2.7em; margin-top: 7px; color: var(--sage); font: 500 clamp(.49rem, 1.25vw, .59rem)/1.35 var(--sans); letter-spacing: .055em; }
+h1 small { display: block; min-height: 2.9em; margin-top: 7px; color: var(--sage); font: 500 clamp(.62rem, 1.6vw, .72rem)/1.4 var(--sans); letter-spacing: .035em; }
 h1 i {
   color: var(--gold);
   font: italic 400 clamp(1.35rem, 4vw, 2.2rem)/1 var(--serif);
@@ -462,10 +462,11 @@ footer {
 }
 
 .hosts {
-  margin-top: 10px;
+  margin: 10px auto 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px 20px;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
+  gap: 7px clamp(16px, 4vw, 28px);
 }
 
 .hosts p { margin: 0; color: var(--ink); font: 500 .92rem/1.25 var(--serif); }
@@ -524,13 +525,13 @@ footer {
   h1 { margin-block: 13px 8px; }
   h1 { gap: 8px; }
   h1 b { font-size: clamp(2.25rem, 11vw, 3rem); }
-  h1 small { min-height: 3.9em; margin-top: 5px; font-size: .46rem; line-height: 1.35; }
+  h1 small { min-height: 4.3em; margin-top: 6px; font-size: .62rem; line-height: 1.4; }
   h1::before { width: 205px; }
   .event-details { margin-top: 20px; padding-block: 13px; gap: 15px; }
   .venue { margin-top: 19px; }
   .closing { margin-top: 18px; }
   footer { margin-top: 18px; padding-top: 8px; }
-  .hosts { gap: 7px 10px; }
+  .hosts { gap: 7px 14px; }
   .hosts p { font-size: .84rem; }
   .hospital { margin-top: 12px; }
 }
