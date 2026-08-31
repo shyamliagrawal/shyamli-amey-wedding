@@ -58,7 +58,7 @@ const invitationVariants = {
       },
       coupleName: 'अमेय और श्यामली',
       wordmark: '../hero-wordmark-hindi-amey-first.png',
-      partnerLine: 'सुपुत्री कविताजी एवं रामवतारजी अग्रवाल',
+      partnerLine: 'सुपुत्री कविताजी एवं रामअवतारजी अग्रवाल',
       footer: [
         'सस्नेह आमंत्रण',
         'सौ. पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल',
@@ -71,24 +71,23 @@ const invitationVariants = {
     s: {
       invocations: [
         'श्री गजानन महाराज प्रसन्न',
-        'खाटू श्याम एवं मनसा माता की कृपा से',
+        'खाटू श्याम एवं मनसा माता की असीम कृपा से हमारे यहाँ',
       ],
-      blessing: 'स्व. कावेरीबाई एवं स्व. वासुदेवजी अग्रवाल के शुभाशीष से',
-      hostLine: {
-        family: 'कविता एवं रामवतार अग्रवाल',
-        invitation: 'आपको अपनी सुपुत्री के',
-        occasion: 'शुभ विवाह में सादर आमंत्रित करते हैं',
-      },
+      hostLine: [
+        'कविता एवं रामअवतार अग्रवाल की सुपुत्री',
+        'स्व. कावेरीबाई एवं स्व. वासुदेवजी अग्रवाल की सुपौत्री',
+      ],
       coupleName: 'श्यामली और अमेय',
       wordmark: '../hero-wordmark-hindi-v3.png',
       partnerLine: [
-        'सुपुत्र डॉ. सुनीताजी एवं डॉ. दीपकजी अग्रवाल',
-        'सुपौत्र सौ. पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल',
+        'डॉ. सुनीताजी एवं डॉ. दीपकजी अग्रवाल के सुपुत्र',
+        'सौ. पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल के सुपौत्र',
       ],
+      closingLine: 'के मंगल परिणय के शुभ अवसर पर हम आपको सादर आमंत्रित करते हैं',
       footer: [
         'सस्नेह आमंत्रण',
         'मुरारी अग्रवाल ✦ विजय अग्रवाल',
-        'रामवतार अग्रवाल ✦ मयुर अग्रवाल',
+        'रामअवतार अग्रवाल ✦ मयुर अग्रवाल',
       ],
     },
   },
@@ -121,31 +120,42 @@ if (invitation) {
     }));
     invocations.hidden = false;
   }
-  const blessingLead = 'With the blessings of ';
-  if (invitation.blessing.startsWith(blessingLead)) {
-    const lead = document.createElement('span');
-    lead.textContent = blessingLead.trim();
-    const names = document.createElement('span');
-    names.className = 'hero-blessing-names';
-    names.textContent = invitation.blessing.slice(blessingLead.length);
-    blessing.replaceChildren(lead, document.createTextNode(' '), names);
-  } else {
-    blessing.textContent = invitation.blessing;
+  if (invitation.blessing) {
+    const blessingLead = 'With the blessings of ';
+    if (invitation.blessing.startsWith(blessingLead)) {
+      const lead = document.createElement('span');
+      lead.textContent = blessingLead.trim();
+      const names = document.createElement('span');
+      names.className = 'hero-blessing-names';
+      names.textContent = invitation.blessing.slice(blessingLead.length);
+      blessing.replaceChildren(lead, document.createTextNode(' '), names);
+    } else {
+      blessing.textContent = invitation.blessing;
+    }
+    blessing.hidden = false;
   }
-  blessing.hidden = false;
-  const familyName = document.createElement('span');
-  familyName.className = 'hero-host-family';
-  familyName.textContent = invitation.hostLine.family;
-  const invitationLead = document.createElement('span');
-  invitationLead.className = 'hero-host-invitation';
-  invitationLead.textContent = invitation.hostLine.invitation;
-  const primaryLine = document.createElement('span');
-  primaryLine.className = 'hero-host-primary';
-  primaryLine.append(familyName, document.createTextNode(' '), invitationLead);
-  const occasion = document.createElement('span');
-  occasion.className = 'hero-host-occasion';
-  occasion.textContent = invitation.hostLine.occasion;
-  hostLine.replaceChildren(primaryLine, occasion);
+  if (Array.isArray(invitation.hostLine)) {
+    hostLine.replaceChildren(...invitation.hostLine.map((line) => {
+      const row = document.createElement('span');
+      row.className = 'hero-host-row';
+      row.textContent = line;
+      return row;
+    }));
+  } else {
+    const familyName = document.createElement('span');
+    familyName.className = 'hero-host-family';
+    familyName.textContent = invitation.hostLine.family;
+    const invitationLead = document.createElement('span');
+    invitationLead.className = 'hero-host-invitation';
+    invitationLead.textContent = invitation.hostLine.invitation;
+    const primaryLine = document.createElement('span');
+    primaryLine.className = 'hero-host-primary';
+    primaryLine.append(familyName, document.createTextNode(' '), invitationLead);
+    const occasion = document.createElement('span');
+    occasion.className = 'hero-host-occasion';
+    occasion.textContent = invitation.hostLine.occasion;
+    hostLine.replaceChildren(primaryLine, occasion);
+  }
   coupleName.textContent = invitation.coupleName;
   wordmark.src = invitation.wordmark;
   wordmark.alt = invitation.coupleName;
@@ -158,6 +168,12 @@ if (invitation) {
     }));
   } else {
     partnerLine.textContent = invitation.partnerLine;
+  }
+  if (invitation.closingLine) {
+    const closingLine = document.createElement('span');
+    closingLine.className = 'hero-invite-closing';
+    closingLine.textContent = invitation.closingLine;
+    partnerLine.append(closingLine);
   }
   if (Array.isArray(invitation.footer)) {
     footer.replaceChildren(...invitation.footer.map((line, index) => {

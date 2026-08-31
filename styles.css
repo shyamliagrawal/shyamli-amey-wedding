@@ -100,16 +100,20 @@ body.hindi .hero-wordmark-hindi { width: min(390px, 35vw); margin-block: -46px -
 .hero-invocation-line + .hero-invocation-line { margin-top: 1px; font-size: .94em; }
 .hero-invocation-line i { display: inline-block; margin-inline: 7px; color: var(--gold); font: normal .72em/1 var(--serif); }
 body.hindi .hero-invocations { letter-spacing: 0; font-family: var(--serif); }
+body.hindi.host-s .hero-invocation-line + .hero-invocation-line { font-size: clamp(1.03rem,1.38vw,1.2rem); font-weight: 600; line-height: 1.55; }
 .hosted-invitation .hero-kicker { max-width: 600px; padding-inline: 12px; text-transform: none; font: 500 clamp(.92rem,1.18vw,1.08rem)/1.42 var(--serif); letter-spacing: .015em; }
 .hero-host-primary { display: block; white-space: nowrap; }
 .hero-host-family { color: var(--rose-dark); font-size: 1.12em; font-weight: 600; }
 .hero-host-invitation { color: #584a38; font-style: italic; }
 .hero-host-occasion { width: fit-content; display: block; margin: 3px auto 0; padding: 0 24px; color: #4d4539; background: radial-gradient(ellipse at center, rgba(255,249,237,.82), rgba(255,249,237,0) 76%); font-size: .94em; }
 .hero-host-occasion::before, .hero-host-occasion::after { content: "✦"; margin: 0 10px; color: var(--gold); font-size: .42em; vertical-align: .28em; }
+.hero-host-row { display: block; }
+.hero-host-row + .hero-host-row { margin-top: 3px; font-size: .92em; }
 .hosted-invitation .hero-wordmark { width: min(350px, 31vw); margin-block: -8px -12px; }
 .hosted-invitation .hero-invitation { font-size: clamp(.92rem,1.25vw,1.08rem); }
 .hero-partner-row { display: block; }
 .hero-partner-row + .hero-partner-row { margin-top: 3px; font-size: .92em; }
+.hero-invite-closing { display: block; width: fit-content; margin: 7px auto 0; padding-inline: 18px; color: #4d4539; background: radial-gradient(ellipse at center, rgba(255,249,237,.82), rgba(255,249,237,0) 76%); font-size: .96em; font-style: normal; }
 .hosted-invitation .hero-details { margin-top: 14px; }
 .host-a .hero-blessing, .host-a .hero-kicker { transform: translateY(11px); }
 body.hindi.hosted-invitation .hero-blessing, body.hindi.hosted-invitation .hero-kicker, body.hindi.hosted-invitation .hero-invitation { letter-spacing: 0; }
@@ -118,6 +122,35 @@ body.hindi.hosted-invitation .hero-host-family, body.hindi.hosted-invitation .he
 body.hindi.hosted-invitation .hero-host-invitation { font-style: normal; }
 body.hindi.hosted-invitation .hero-wordmark-hindi { width: min(350px,31vw); margin-block: -38px -9px; }
 body.hindi.hosted-invitation .hero-invitation { line-height: 1.55; }
+body.hindi.host-s .hero-kicker,
+body.hindi.host-s .hero-invitation {
+  width: min(560px, 92%);
+  margin-inline: auto;
+  color: #584a38;
+  background: radial-gradient(ellipse at center, rgba(255,249,237,.84), rgba(255,249,237,0) 78%);
+  font-family: var(--serif);
+  font-size: clamp(.92rem,1.18vw,1.06rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.52;
+  text-align: center;
+}
+body.hindi.host-s .hero-host-row,
+body.hindi.host-s .hero-partner-row { margin: 0; color: #74484a; font-size: clamp(.92rem,1.18vw,1.06rem); font-style: normal; font-weight: 500; line-height: 1.52; }
+body.hindi.host-s .hero-host-row + .hero-host-row,
+body.hindi.host-s .hero-partner-row + .hero-partner-row { margin-top: 2px; font-size: clamp(.92rem,1.18vw,1.06rem); }
+body.hindi.host-s .hero-invite-closing {
+  margin-top: 10px;
+  padding-inline: 12px;
+  color: #795c30;
+  font-family: var(--serif);
+  font-size: clamp(1.03rem,1.38vw,1.2rem);
+  font-weight: 600;
+  line-height: 1.55;
+  text-shadow: 0 1px 7px rgba(255,251,243,.98);
+}
+body.hindi.host-s .hero-invite-closing::before,
+body.hindi.host-s .hero-invite-closing::after { content: "✦"; margin-inline: 9px; color: var(--gold); font-size: .38em; vertical-align: .3em; }
 .hero-details { width: min(460px, 92%); margin: 18px auto 20px; padding: 15px 0 14px; border-top: 1px solid rgba(185,133,47,.55); border-bottom: 1px solid rgba(185,133,47,.55); }
 .date { margin: 0; color: var(--forest); text-transform: uppercase; }
 .date strong { display: block; color: #3f5038; font: 500 clamp(2.05rem, 3.3vw, 2.68rem)/.92 var(--serif); font-variant-numeric: lining-nums; letter-spacing: .1em; text-shadow: 0 1px 0 rgba(255,250,239,.9); }
