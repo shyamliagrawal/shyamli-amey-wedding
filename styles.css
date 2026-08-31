@@ -288,6 +288,7 @@ footer { padding: 48px 5vw; display: flex; justify-content: center; align-items:
 .footer-family i { color: var(--gold); font: normal .58em/1 var(--serif); }
 .host-a #footer-family-text, .host-s #footer-family-text { display: grid; gap: 5px; }
 .host-a .footer-invitation-heading, .host-s .footer-invitation-heading { color: var(--gold); text-transform: uppercase; font: normal 500 .58rem/1.3 var(--sans); letter-spacing: .18em; }
+.host-a .footer-invitation-heading:not(:first-child), .host-s .footer-invitation-heading:not(:first-child) { margin-top: 7px; }
 .host-a .footer-invitation-line, .host-s .footer-invitation-line { display: block; white-space: nowrap; letter-spacing: .02em; }
 .host-a .footer-separator, .host-s .footer-separator { display: inline-block; margin: 0 .62em; color: var(--gold); font: normal .52em/1 var(--serif); }
 body.hindi.host-a .footer-invitation-heading { text-transform: none; letter-spacing: 0; font-family: var(--sans); font-size: .72rem; }

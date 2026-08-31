@@ -6,7 +6,7 @@ const isHindi = document.documentElement.lang === 'hi';
 const invitationVariants = {
   en: {
     a: {
-      blessing: 'With the blessings of Padma-devi and Dr Inderchandji Agrawal',
+      blessing: 'With the blessings of Sau. Padma-devi and Dr Inderchandji Agrawal',
       hostLine: {
         family: 'Dr Sunita and Dr Dipak Agrawal',
         invitation: 'joyfully invite you',
@@ -17,8 +17,11 @@ const invitationVariants = {
       partnerLine: 'daughter of Kavitaji and Ramavtarji Agrawal',
       footer: [
         'Cordially inviting you',
-        'Padma-devi & Dr Inderchandji Agrawal',
+        'Sau. Padma-devi & Dr Inderchandji Agrawal',
+        'Sau. Laxmi-devi & Sunilji Agrawal',
         'Dr Sunita & Dr Dipak Agrawal ✦ Nitin Agrawal',
+        'With best compliments',
+        'Anirudha & Aparna',
       ],
     },
     s: {
@@ -36,7 +39,7 @@ const invitationVariants = {
       wordmark: 'hero-wordmark-v2.png',
       partnerLine: [
         'son of Dr Sunitaji and Dr Dipakji Agrawal',
-        'grandson of Padma-devi and Dr Inderchandji Agrawal',
+        'grandson of Sau. Padma-devi and Dr Inderchandji Agrawal',
       ],
       footer: [
         'Cordially inviting you',
@@ -47,7 +50,7 @@ const invitationVariants = {
   },
   hi: {
     a: {
-      blessing: 'पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल के शुभाशीष से',
+      blessing: 'सौ. पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल के शुभाशीष से',
       hostLine: {
         family: 'डॉ. सुनीता एवं डॉ. दीपक अग्रवाल',
         invitation: 'आपको अपने सुपुत्र के',
@@ -58,8 +61,11 @@ const invitationVariants = {
       partnerLine: 'सुपुत्री कविताजी एवं रामवतारजी अग्रवाल',
       footer: [
         'सस्नेह आमंत्रण',
-        'पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल',
+        'सौ. पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल',
+        'सौ. लक्ष्मी देवी एवं सुनीलजी अग्रवाल',
         'डॉ. सुनीता एवं डॉ. दीपक अग्रवाल ✦ नितिन अग्रवाल',
+        'शुभकामनाओं सहित',
+        'अनिरुद्ध एवं अपर्णा',
       ],
     },
     s: {
@@ -77,7 +83,7 @@ const invitationVariants = {
       wordmark: '../hero-wordmark-hindi-v3.png',
       partnerLine: [
         'सुपुत्र डॉ. सुनीताजी एवं डॉ. दीपकजी अग्रवाल',
-        'सुपौत्र पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल',
+        'सुपौत्र सौ. पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल',
       ],
       footer: [
         'सस्नेह आमंत्रण',
@@ -156,7 +162,8 @@ if (invitation) {
   if (Array.isArray(invitation.footer)) {
     footer.replaceChildren(...invitation.footer.map((line, index) => {
       const row = document.createElement('span');
-      row.className = index === 0 ? 'footer-invitation-heading' : 'footer-invitation-line';
+      const isHeading = index === 0 || line === 'With best compliments' || line === 'शुभकामनाओं सहित';
+      row.className = isHeading ? 'footer-invitation-heading' : 'footer-invitation-line';
       const parts = line.split(' ✦ ');
       row.append(document.createTextNode(parts[0]));
       if (parts.length > 1) {

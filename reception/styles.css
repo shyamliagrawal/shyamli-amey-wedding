@@ -462,12 +462,31 @@ footer {
 }
 
 .hosts {
+  position: relative;
+  isolation: isolate;
   margin: 10px auto 0;
   display: grid;
-  grid-template-columns: repeat(2, max-content);
-  justify-content: center;
-  gap: 7px clamp(16px, 4vw, 28px);
+  justify-items: center;
+  gap: 8px;
 }
+
+.hosts::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -7px -16px;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(251,247,239,.98) 38%, rgba(251,247,239,.9) 70%, transparent 100%);
+}
+
+.host-row {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: clamp(18px, 4vw, 32px);
+}
+
+.host-row-three { gap: clamp(13px, 3vw, 24px); }
 
 .hosts p { margin: 0; color: var(--ink); font: 500 .92rem/1.25 var(--serif); }
 .hosts strong { font-weight: 600; }
@@ -531,14 +550,17 @@ footer {
   .venue { margin-top: 19px; }
   .closing { margin-top: 18px; }
   footer { margin-top: 18px; padding-top: 8px; }
-  .hosts { gap: 7px 14px; }
+  .hosts { gap: 8px; }
+  .host-row { gap: 14px; }
+  .host-row-three { gap: 10px; }
   .hosts p { font-size: .84rem; }
   .hospital { margin-top: 12px; }
 }
 
 @media (max-width: 350px) {
   .invitation-card { padding-inline: 17px; }
-  .hosts { grid-template-columns: 1fr; gap: 5px; }
+  .host-row { flex-wrap: wrap; row-gap: 5px; }
+  .host-row-three { max-width: 270px; }
 }
 
 @media print {
