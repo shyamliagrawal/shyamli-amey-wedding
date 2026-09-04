@@ -1,0 +1,4 @@
+# Private wedding website: please do not crawl or index any page or asset.
+User-agent: *
+Disallow: /
+
