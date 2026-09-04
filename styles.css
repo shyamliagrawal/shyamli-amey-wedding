@@ -90,6 +90,7 @@ nav a:hover::after { width: 100%; }
 .hero-kicker { width: fit-content; margin: 0 auto; padding: 3px 18px; color: #463a27; background: radial-gradient(ellipse at center, rgba(255,251,243,.78), rgba(255,251,243,0) 75%); text-transform: uppercase; font: 500 clamp(.69rem, .9vw, .8rem)/1.4 var(--sans); letter-spacing: .29em; text-shadow: 0 1px 8px #fffaf0; }
 .hero-blessing { max-width: 520px; margin: 0 auto 7px; color: #76511f; font: italic 600 clamp(.86rem,1.15vw,1rem)/1.35 var(--serif); letter-spacing: .035em; text-shadow: 0 1px 7px rgba(255,251,243,.98), 0 0 12px rgba(255,248,232,.72); }
 .hero-wordmark { width: min(410px, 37vw); margin: -1px auto -15px; filter: drop-shadow(0 3px 9px rgba(255,251,241,.7)); }
+.host-s.formal-host-copy .hero-wordmark { display: none; }
 body.hindi .hero-wordmark-hindi { width: min(390px, 35vw); margin-block: -46px -6px; }
 .hero-invitation { margin: 0; color: #584a38; font: italic 600 clamp(1.03rem, 1.5vw, 1.26rem)/1.3 var(--serif); letter-spacing: .035em; text-shadow: 0 1px 8px rgba(255,251,243,.95); }
 .hosted-invitation .hero { min-height: 100svh; }
@@ -113,7 +114,7 @@ body.hindi.host-s .hero-invocation-line + .hero-invocation-line { font-size: cla
 .hosted-invitation .hero-invitation { font-size: clamp(.92rem,1.25vw,1.08rem); }
 .hero-partner-row { display: block; }
 .hero-partner-row + .hero-partner-row { margin-top: 3px; font-size: .92em; }
-.hero-invite-closing { display: block; width: fit-content; margin: 7px auto 0; padding-inline: 18px; color: #4d4539; background: radial-gradient(ellipse at center, rgba(255,249,237,.82), rgba(255,249,237,0) 76%); font-size: .96em; font-style: normal; }
+.hero-invite-closing { display: block; width: fit-content; max-width: min(520px,92%); margin: 7px auto 0; padding-inline: 18px; color: #4d4539; background: radial-gradient(ellipse at center, rgba(255,249,237,.82), rgba(255,249,237,0) 76%); font-size: .96em; font-style: normal; text-align: center; text-wrap: balance; }
 .hosted-invitation .hero-details { margin-top: 14px; }
 .host-a .hero-blessing, .host-a .hero-kicker { transform: translateY(11px); }
 body.hindi.hosted-invitation .hero-blessing, body.hindi.hosted-invitation .hero-kicker, body.hindi.hosted-invitation .hero-invitation { letter-spacing: 0; }
@@ -151,6 +152,21 @@ body.hindi.host-s .hero-invite-closing {
 }
 body.hindi.host-s .hero-invite-closing::before,
 body.hindi.host-s .hero-invite-closing::after { content: "✦"; margin-inline: 9px; color: var(--gold); font-size: .38em; vertical-align: .3em; }
+body.hindi.host-s.formal-host-copy .hero-kicker,
+body.hindi.host-s.formal-host-copy .hero-invitation { width: min(660px,94%); background: none; }
+.hero-formal-person { display: block; }
+.hero-formal-heading { display: flex; justify-content: center; align-items: baseline; gap: 9px; }
+.hero-formal-heading small { color: var(--gold); font: 600 clamp(.72rem,.95vw,.85rem)/1.2 var(--serif); }
+.hero-formal-heading strong { color: #984e54; font: 600 clamp(2rem,3.8vw,3.15rem)/1.05 var(--serif); text-shadow: 0 2px 9px rgba(255,250,240,.96); }
+.hero-formal-relations { display: block; margin-top: 2px; color: #74484a; font: 500 clamp(.77rem,1vw,.92rem)/1.45 var(--serif); }
+.hero-formal-relations > span { display: block; }
+.hero-formal-residence { display: block; margin-top: 2px; color: #795c30; font: 500 clamp(.68rem,.85vw,.78rem)/1.35 var(--serif); }
+.hero-formal-connector { display: flex; justify-content: center; align-items: center; gap: 9px; width: min(150px,42%); margin: 5px auto 3px; color: var(--gold); font: 600 clamp(.8rem,1vw,.92rem)/1.2 var(--serif); }
+.hero-formal-connector::before,
+.hero-formal-connector::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(185,133,47,.58)); }
+.hero-formal-connector::after { transform: scaleX(-1); }
+body.hindi.host-s.formal-host-copy .hero-invocations { margin-bottom: 7px; }
+body.hindi.host-s.formal-host-copy .hero-details { margin-top: 10px; }
 .hero-details { width: min(460px, 92%); margin: 18px auto 20px; padding: 15px 0 14px; border-top: 1px solid rgba(185,133,47,.55); border-bottom: 1px solid rgba(185,133,47,.55); }
 .date { margin: 0; color: var(--forest); text-transform: uppercase; }
 .date strong { display: block; color: #3f5038; font: 500 clamp(2.05rem, 3.3vw, 2.68rem)/.92 var(--serif); font-variant-numeric: lining-nums; letter-spacing: .1em; text-shadow: 0 1px 0 rgba(255,250,239,.9); }
@@ -344,6 +360,9 @@ body.hindi.host-s .footer-invitation-line { letter-spacing: 0; }
   .hosted-invitation .hero-details { margin-block: 10px 14px; padding-block: 10px; }
   .hosted-invitation .place { margin-top: 9px; }
   .host-a .hero-blessing, .host-a .hero-kicker { transform: translateY(6px); }
+  body.hindi.host-s.formal-host-copy .hero-copy { padding-top: 42px; }
+  body.hindi.host-s.formal-host-copy .hero-formal-heading strong { font-size: clamp(1.75rem,4.3svh,2.35rem); }
+  body.hindi.host-s.formal-host-copy .hero-formal-relations { font-size: .72rem; line-height: 1.35; }
 }
 
 @media (max-width: 850px) {
@@ -390,8 +409,21 @@ body.hindi.host-s .footer-invitation-line { letter-spacing: 0; }
   body.hindi.hosted-invitation .hero-kicker { font-size: .94rem; line-height: 1.62; }
   body.hindi.hosted-invitation .hero-host-primary { font-size: .84rem; }
   body.hindi.hosted-invitation .hero-wordmark-hindi { width: min(65vw, 298px); margin-block: -33px -6px; }
+  body.hindi.host-s.formal-host-copy .hero-copy { padding-top: 52px; }
+  body.hindi.host-s.formal-host-copy .hero-invocations { max-width: 345px; margin-bottom: 6px; }
+  body.hindi.host-s.formal-host-copy .hero-kicker,
+  body.hindi.host-s.formal-host-copy .hero-invitation { width: min(355px,96%); }
+  .hero-formal-heading { gap: 7px; }
+  .hero-formal-heading strong { font-size: clamp(1.85rem,9.2vw,2.45rem); }
+  .hero-formal-heading small { font-size: .68rem; }
+  .hero-formal-relations { font-size: clamp(.7rem,3.15vw,.82rem); line-height: 1.42; }
+  .hero-formal-residence { font-size: .65rem; }
+  .hero-formal-connector { margin-block: 3px 1px; }
+  .hero-invite-closing { max-width: 320px; padding-inline: 8px; line-height: 1.5; }
   .host-a .footer-family, .host-s .footer-family { gap: 10px; }
   .host-a .footer-invitation-line, .host-s .footer-invitation-line { font-size: clamp(.82rem,3.8vw,1rem); }
+  .host-s.formal-host-copy .footer-family { gap: 6px; }
+  .host-s.formal-host-copy .footer-invitation-line { font-size: clamp(.68rem,3vw,.84rem); }
   .hero-details { width: min(330px, 90%); margin: 15px auto 18px; padding: 13px 0 12px; }
   .date strong { font-size: 1.82rem; letter-spacing: .12em; }
   .date span { font-size: .82rem; letter-spacing: .16em; }

@@ -29,22 +29,32 @@ const invitationVariants = {
         'Shree Gajanan Maharaj Prasanna',
         'By the grace of Khatu Shyam and Mansa Mata',
       ],
-      blessing: 'With the blessings of Late Kaveri-bai and Late Vasudeoji Agrawal',
-      hostLine: {
-        family: 'Kavita and Ramavtar Agrawal',
-        invitation: 'joyfully invite you',
-        occasion: 'to celebrate the wedding of their daughter',
-      },
       coupleName: 'Shyamli and Amey',
-      wordmark: 'hero-wordmark-v2.png',
-      partnerLine: [
-        'son of Dr Sunitaji and Dr Dipakji Agrawal',
-        'grandson of Sau. Padma-devi and Dr Inderchandji Agrawal',
-      ],
+      formalCouple: {
+        bride: {
+          name: 'Shyamli',
+          lines: [
+            'granddaughter of Late Kaveri-bai and Late Vasudeoji Agrawal',
+            'daughter of Sau. Kavitaji and Shri Ramavtarji Agrawal',
+          ],
+          residence: 'Shegaon',
+        },
+        connector: '&',
+        groom: {
+          name: 'Amey',
+          lines: [
+            'grandson of Sau. Padma-devi and Dr Shri Inderchandji Agrawal',
+            'son of Dr Sunitaji and Dr Dipakji Agrawal',
+          ],
+          residence: 'Yavatmal',
+        },
+      },
+      closingLine: 'are getting married, and we cordially invite you to join us on this joyous occasion.',
       footer: [
         'Cordially inviting you',
-        'Murari Agrawal ✦ Vijay Agrawal',
-        'Ramavtar Agrawal ✦ Mayur Agrawal',
+        'Harish Agrawal',
+        'Murari Agrawal ✦ Vijay Agrawal ✦ Ramavtar Agrawal',
+        'Abhishek Agrawal ✦ Mayur Agrawal',
       ],
     },
   },
@@ -73,21 +83,34 @@ const invitationVariants = {
         'श्री गजानन महाराज प्रसन्न',
         'खाटू श्याम एवं मनसा माता की असीम कृपा से हमारे यहाँ',
       ],
-      hostLine: [
-        'कविता एवं रामअवतार अग्रवाल की सुपुत्री',
-        'स्व. कावेरीबाई एवं स्व. वासुदेवजी अग्रवाल की सुपौत्री',
-      ],
       coupleName: 'श्यामली और अमेय',
-      wordmark: '../hero-wordmark-hindi-v3.png',
-      partnerLine: [
-        'डॉ. सुनीताजी एवं डॉ. दीपकजी अग्रवाल के सुपुत्र',
-        'सौ. पद्मा देवी एवं डॉ. इंदरचंदजी अग्रवाल के सुपौत्र',
-      ],
-      closingLine: 'के मंगल परिणय के शुभ अवसर पर हम आपको सादर आमंत्रित करते हैं',
+      formalCouple: {
+        bride: {
+          prefix: 'चि. सौ. कां.',
+          name: 'श्यामली',
+          lines: [
+            'सुपौत्री — स्व. कावेरीबाई एवं स्व. वासुदेवजी अग्रवाल',
+            'सुपुत्री — सौ. कविताजी एवं श्री रामअवतारजी अग्रवाल',
+          ],
+          residence: 'शेगांव निवासी',
+        },
+        connector: 'एवं',
+        groom: {
+          prefix: 'चि.',
+          name: 'अमेय',
+          lines: [
+            'सुपौत्र — सौ. पद्मादेवी एवं डॉ. श्री इंदरचंदजी अग्रवाल',
+            'सुपुत्र — डॉ. सुनीताजी एवं डॉ. दीपकजी अग्रवाल',
+          ],
+          residence: 'यवतमाल निवासी',
+        },
+      },
+      closingLine: 'के मंगल परिणय के शुभ अवसर पर हम आपको सादर आमंत्रित करते हैं।',
       footer: [
         'सस्नेह आमंत्रण',
-        'मुरारी अग्रवाल ✦ विजय अग्रवाल',
-        'रामअवतार अग्रवाल ✦ मयुर अग्रवाल',
+        'हरीश अग्रवाल',
+        'मुरारी अग्रवाल ✦ विजय अग्रवाल ✦ रामअवतार अग्रवाल',
+        'अभिषेक अग्रवाल ✦ मयुर अग्रवाल',
       ],
     },
   },
@@ -134,7 +157,42 @@ if (invitation) {
     }
     blessing.hidden = false;
   }
-  if (Array.isArray(invitation.hostLine)) {
+  const createFormalPerson = (person, role) => {
+    const block = document.createElement('span');
+    block.className = `hero-formal-person hero-formal-${role}`;
+    const heading = document.createElement('span');
+    heading.className = 'hero-formal-heading';
+    const name = document.createElement('strong');
+    name.textContent = person.name;
+    if (person.prefix) {
+      const prefix = document.createElement('small');
+      prefix.textContent = person.prefix;
+      heading.append(prefix);
+    }
+    heading.append(name);
+    const relations = document.createElement('span');
+    relations.className = 'hero-formal-relations';
+    relations.replaceChildren(...person.lines.map((line) => {
+      const row = document.createElement('span');
+      row.textContent = line;
+      return row;
+    }));
+    const residence = document.createElement('span');
+    residence.className = 'hero-formal-residence';
+    residence.textContent = person.residence;
+    block.append(heading, relations, residence);
+    return block;
+  };
+
+  if (invitation.formalCouple) {
+    document.body.classList.add('formal-host-copy');
+    const connector = document.createElement('span');
+    connector.className = 'hero-formal-connector';
+    connector.textContent = invitation.formalCouple.connector;
+    hostLine.replaceChildren(createFormalPerson(invitation.formalCouple.bride, 'bride'), connector);
+    wordmark.hidden = true;
+    partnerLine.replaceChildren(createFormalPerson(invitation.formalCouple.groom, 'groom'));
+  } else if (Array.isArray(invitation.hostLine)) {
     hostLine.replaceChildren(...invitation.hostLine.map((line) => {
       const row = document.createElement('span');
       row.className = 'hero-host-row';
@@ -157,17 +215,19 @@ if (invitation) {
     hostLine.replaceChildren(primaryLine, occasion);
   }
   coupleName.textContent = invitation.coupleName;
-  wordmark.src = invitation.wordmark;
-  wordmark.alt = invitation.coupleName;
-  if (Array.isArray(invitation.partnerLine)) {
-    partnerLine.replaceChildren(...invitation.partnerLine.map((line) => {
-      const row = document.createElement('span');
-      row.className = 'hero-partner-row';
-      row.textContent = line;
-      return row;
-    }));
-  } else {
-    partnerLine.textContent = invitation.partnerLine;
+  if (!invitation.formalCouple) {
+    wordmark.src = invitation.wordmark;
+    wordmark.alt = invitation.coupleName;
+    if (Array.isArray(invitation.partnerLine)) {
+      partnerLine.replaceChildren(...invitation.partnerLine.map((line) => {
+        const row = document.createElement('span');
+        row.className = 'hero-partner-row';
+        row.textContent = line;
+        return row;
+      }));
+    } else {
+      partnerLine.textContent = invitation.partnerLine;
+    }
   }
   if (invitation.closingLine) {
     const closingLine = document.createElement('span');
@@ -181,14 +241,16 @@ if (invitation) {
       const isHeading = index === 0 || line === 'With best compliments' || line === 'शुभकामनाओं सहित';
       row.className = isHeading ? 'footer-invitation-heading' : 'footer-invitation-line';
       const parts = line.split(' ✦ ');
-      row.append(document.createTextNode(parts[0]));
-      if (parts.length > 1) {
-        const separator = document.createElement('i');
-        separator.className = 'footer-separator';
-        separator.setAttribute('aria-hidden', 'true');
-        separator.textContent = '✦';
-        row.append(separator, document.createTextNode(parts[1]));
-      }
+      parts.forEach((part, partIndex) => {
+        if (partIndex > 0) {
+          const separator = document.createElement('i');
+          separator.className = 'footer-separator';
+          separator.setAttribute('aria-hidden', 'true');
+          separator.textContent = '✦';
+          row.append(separator);
+        }
+        row.append(document.createTextNode(part));
+      });
       return row;
     }));
   } else {
