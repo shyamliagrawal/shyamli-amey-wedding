@@ -35,7 +35,7 @@ const invitationVariants = {
           name: 'Shyamli',
           lines: [
             'granddaughter of Late Kaveri-bai and Late Vasudeoji Agrawal',
-            'daughter of Sau. Kavitaji and Shri Ramavtarji Agrawal',
+            'daughter of Sau. Kavita and Ramavtar Agrawal',
           ],
           residence: 'Shegaon',
         },
@@ -90,7 +90,7 @@ const invitationVariants = {
           name: 'श्यामली',
           lines: [
             'सुपौत्री — स्व. कावेरीबाई एवं स्व. वासुदेवजी अग्रवाल',
-            'सुपुत्री — सौ. कविताजी एवं श्री रामअवतारजी अग्रवाल',
+            'सुपुत्री — सौ. कविता एवं रामअवतार अग्रवाल',
           ],
           residence: 'शेगांव निवासी',
         },
